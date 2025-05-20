@@ -1,0 +1,23 @@
+---
+title: "ENVS-193DS_homework-03"
+author: "Ethan Mathews"
+date: "05/24/2025"
+format: html
+---
+
+link to GitHub Repository: https://github.com/ethan-mathews24/ENVS-193DS_homework-03.git
+
+```{r Reading in Packages}
+
+library(tidyverse)
+
+library(gt)
+
+library(janitor)
+
+library(here)
+
+library(readxl)
+
+```
+
