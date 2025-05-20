@@ -9,6 +9,8 @@ link to GitHub Repository: https://github.com/ethan-mathews24/ENVS-193DS_homewor
 
 ```{r Reading in Packages}
 
+#| message: false
+
 library(tidyverse)
 
 library(gt)
@@ -19,5 +21,57 @@ library(here)
 
 library(readxl)
 
+data <- read.csv("data/PersonalStudyHome.csv")
+
 ```
+
+
+##Part 2. Problems 
+
+###Problem 1. Personal Data 
+
+
+####a. 
+
+The data can be summarized by comparing the distribution of water consumption (liters) between cardiovascular and strength training workouts using a box plot with underlying data shown as jitter points. This comparison is informative because cardiovascular workouts are typically more physically demanding and sweat-intensive, potentially leading to greater water intake than strength training sessions, which often occur in more controlled environments. 
+
+
+####b.
+```{r Personal Data Visualization}
+
+
+
+
+
+```
+
+
+####c. 
+Caption Here --- 
+
+
+
+
+####d.
+```{r Data Table Visualization}
+
+
+
+
+
+
+```
+
+
+
+### Problem 2. Affective visualization
+
+
+
+
+
+
+
+
+
 
