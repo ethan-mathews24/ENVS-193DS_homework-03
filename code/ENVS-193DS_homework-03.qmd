@@ -83,12 +83,59 @@ ggplot(data = data, # calling in data frame
 
 
 ####d.
-```{r Data Table Visualization}
+```{r Clean/Organizing Data for Table}
+
+data_clean <- data |> # starting data frame 
+  clean_names() |> # clean names to standardize format 
+  select(water_consumption, workout_type) |> # selecting specific columns 
+  mutate(workout_type = recode(workout_type, cardiovascular = "Cardiovascular",
+                               strength = "Strength")) # cleaning table names for future table reference 
+
+```
 
 
+```{r Visual Table}
+
+data_summary <- data_clean |> # starting data frame 
+  group_by(workout_type) |> # grouping by the workout type 
+  summarize(
+    n = n(), # including the number of observations 
+    median = median(water_consumption), # median calculation 
+    lower = quantile(water_consumption, 0.25), # lower quantile calculation 
+    upper = quantile(water_consumption, 0.75), # upper quantile calculation 
+    minimum = min(water_consumption), # minimum value calculation 
+    maximum = max(water_consumption)) |> # maximum value calculation 
+  mutate(
+    across(c(median, lower, upper, minimum, maximum), 
+           ~ round(.x, 1)))  # rounding the previous calculations to 1 decimal point
 
 
-
+data_summary |> # starting data frame that has summary statistics
+  gt() |> # package for summary table 
+  
+  tab_header(title = "Summary Statistics of Water Intake by Workout Type") |> # creating table header/title
+  
+  cols_label(
+    workout_type = "Workout Type",
+    n = "Number of Observations",
+    median = "Median",
+    lower = "Lower Quantile",
+    upper = "Upper Quantile",
+    minimum = "Minimum",
+    maximum = "Maximum" # cleaning the column names for the table 
+  ) |> 
+  cols_align(
+    align = "left",
+    columns = workout_type) |> # changing the alignment 
+  cols_align(
+    align = "center",
+    columns = c(n, median, lower, upper, minimum, maximum)) |> # changing to center alignment 
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())) |> # making the column names bold 
+  tab_options(
+  table.font.size = "small") # changing font size so it can fit better 
+  
 
 ```
 
