@@ -6,7 +6,7 @@ format: html
 ---
 
 link to GitHub Repository: https://github.com/ethan-mathews24/ENVS-193DS_homework-03.git
-link to rednered html: https://ethan-mathews24.github.io/ENVS-193DS_homework-03/code/ENVS-193DS_homework-03
+
 
 ```{r Reading in Packages}
 #| message: false
