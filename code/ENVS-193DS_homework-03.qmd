@@ -21,7 +21,7 @@ library(here)
 
 library(readxl)
 
-data <- read.csv("data/PersonalStudyHome.csv")
+data <- read.csv(here("data","PersonalStudyHome.csv"))
 
 ```
 
@@ -100,11 +100,11 @@ data_summary <- data_clean |> # starting data frame
   group_by(workout_type) |> # grouping by the workout type 
   summarize(
     n = n(), # including the number of observations 
-    median = median(water_consumption), # median calculation 
-    lower = quantile(water_consumption, 0.25), # lower quantile calculation 
-    upper = quantile(water_consumption, 0.75), # upper quantile calculation 
-    minimum = min(water_consumption), # minimum value calculation 
-    maximum = max(water_consumption)) |> # maximum value calculation 
+    median = median(water_consumption, na.rm = TRUE), # median calculation 
+    lower = quantile(water_consumption, 0.25, na.rm = TRUE), # lower quantile calculation 
+    upper = quantile(water_consumption, 0.75, na.rm = TRUE), # upper quantile calculation 
+    minimum = min(water_consumption, na.rm = TRUE), # minimum value calculation 
+    maximum = max(water_consumption, na.rm = TRUE)) |> # maximum value calculation 
   mutate(
     across(c(median, lower, upper, minimum, maximum), 
            ~ round(.x, 1)))  # rounding the previous calculations to 1 decimal point
@@ -113,7 +113,7 @@ data_summary <- data_clean |> # starting data frame
 data_summary |> # starting data frame that has summary statistics
   gt() |> # package for summary table 
   
-  tab_header(title = "Summary Statistics of Water Intake by Workout Type") |> # creating table header/title
+  tab_header(title = "Summary Statistics of Water Intake (liters) by Workout Type") |> # creating table header/title
   
   cols_label(
     workout_type = "Workout Type",
@@ -138,7 +138,6 @@ data_summary |> # starting data frame that has summary statistics
   
 
 ```
-
 
 
 ### Problem 2. Affective visualization
