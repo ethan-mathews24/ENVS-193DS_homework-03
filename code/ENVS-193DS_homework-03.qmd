@@ -79,9 +79,7 @@ ggplot(data = data, # calling in data frame
 
 
 ####c. 
-Caption Here --- 
-
-
+**Figure 1. Cardiovascular workouts are associated with higher water intake.** Data from *Personal study conducted for Data Science in Environmental Studies* (Mathews, E. 2025). Water consumption (liters) was recorded for two types of workouts, cardiovascular (n = 11) and strength training (n = 22). Cardiovascular workouts had a higher median and a more narrow spread of water intake compared to strength training. Transparent open circles represent individual observations and the box plots represent the distribution of values for each group. Colors represent the workout type (purple = cardiovascular and blue = strength training).  
 
 
 ####d.
