@@ -26,17 +26,17 @@ data <- read.csv(here("data","PersonalStudyHome.csv"))
 ```
 
 
-##Part 2. Problems 
+## Part 2. Problems 
 
-###Problem 1. Personal Data 
+### Problem 1. Personal Data 
 
 
-####a. 
+#### a. 
 
 The data can be summarized by comparing the distribution of water consumption (liters) between cardiovascular and strength training workouts using a box plot that visually represents the distribution and spread of the data, showing the minimum, first quartile, median, third quartile, and maximum, with the underlying data displayed as jitter points. This comparison is informative for me because I typically associate cardiovascular workouts with being more physically demanding and sweat-intensive, potentially leading to greater water intake than strength training sessions, so I expect that water consumption will be higher on days I run or bike compared to when I lift weights.  
 
 
-####b.
+#### b.
 ```{r Personal Data Visualization}
 
 ggplot(data = data, # calling in data frame
@@ -78,11 +78,11 @@ ggplot(data = data, # calling in data frame
 ```
 
 
-####c. 
+#### c. 
 **Figure 1. Cardiovascular workouts are associated with higher water intake.** Data from *Personal study conducted for Data Science in Environmental Studies* (Mathews, E. 2025). Water consumption (liters) was recorded for two types of workouts, cardiovascular (n = 11) and strength training (n = 22). Cardiovascular workouts had a higher median and a more narrow spread of water intake compared to strength training. Transparent open circles represent individual observations and the box plots represent the distribution of values for each group. Colors represent the workout type (purple = cardiovascular and blue = strength training).  
 
 
-####d.
+#### d.
 ```{r Clean/Organizing Data for Table}
 
 data_clean <- data |> # starting data frame 
@@ -141,6 +141,23 @@ data_summary |> # starting data frame that has summary statistics
 
 
 ### Problem 2. Affective visualization
+
+#### a. 
+When I first thought about affective data visualization, I was drawn to the idea of humanizing data—transforming numbers on a spreadsheet into something more tangible and relatable. For my project, I plan to represent average water intake by illustrating body parts like back, arms, chest, legs, abs, shoulders, and lungs for endurance along the x-axis. Instead of traditional bars or box plots, each muscle group will be visually represented and "filled" with water to reflect the average amount consumed during workouts targeting that area. To complement this, a small flame icon above each body part will indicate average workout intensity, with four levels/rings that represent the level of intensity for that body part (more rings filled = higher average intensity). This approach personalizes the data, highlighting the physical connection between hydration and strain while making the visualization emotionally engaging and easy to interpret.
+
+
+#### b. 
+```{r}
+
+
+
+
+
+
+```
+
+
+
 
 
 
