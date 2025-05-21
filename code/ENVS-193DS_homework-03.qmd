@@ -6,9 +6,9 @@ format: html
 ---
 
 link to GitHub Repository: https://github.com/ethan-mathews24/ENVS-193DS_homework-03.git
+link to rednered html: https://ethan-mathews24.github.io/ENVS-193DS_homework-03/code/ENVS-193DS_homework-03
 
 ```{r Reading in Packages}
-
 #| message: false
 
 library(tidyverse)
@@ -93,7 +93,6 @@ data_clean <- data |> # starting data frame
 
 ```
 
-
 ```{r Visual Table}
 
 data_summary <- data_clean |> # starting data frame 
@@ -113,7 +112,7 @@ data_summary <- data_clean |> # starting data frame
 data_summary |> # starting data frame that has summary statistics
   gt() |> # package for summary table 
   
-  tab_header(title = "Summary Statistics of Water Intake (liters) by Workout Type") |> # creating table header/title
+  tab_header(title = html("<strong>Table 1.</strong> Summary Statistics of Water Intake (liters) by Workout Type")) |> # creating and bolding table header/title
   
   cols_label(
     workout_type = "Workout Type",
@@ -134,7 +133,8 @@ data_summary |> # starting data frame that has summary statistics
     style = cell_text(weight = "bold"),
     locations = cells_column_labels(everything())) |> # making the column names bold 
   tab_options(
-  table.font.size = "small") # changing font size so it can fit better 
+  table.font.size = "small", # changing font size so it can fit better 
+  heading.align = "left") # align the title to the left
   
 
 ```
