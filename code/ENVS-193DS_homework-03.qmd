@@ -33,14 +33,46 @@ data <- read.csv("data/PersonalStudyHome.csv")
 
 ####a. 
 
-The data can be summarized by comparing the distribution of water consumption (liters) between cardiovascular and strength training workouts using a box plot with underlying data shown as jitter points. This comparison is informative because cardiovascular workouts are typically more physically demanding and sweat-intensive, potentially leading to greater water intake than strength training sessions, which often occur in more controlled environments. 
+The data can be summarized by comparing the distribution of water consumption (liters) between cardiovascular and strength training workouts using a box plot that visually represents the distribution and spread of the data, showing the minimum, first quartile, median, third quartile, and maximum, with the underlying data displayed as jitter points. This comparison is informative for me because I typically associate cardiovascular workouts with being more physically demanding and sweat-intensive, potentially leading to greater water intake than strength training sessions, so I expect that water consumption will be higher on days I run or bike compared to when I lift weights.  
 
 
 ####b.
 ```{r Personal Data Visualization}
 
+ggplot(data = data, # calling in data frame
+       aes(x = Workout_Type, # assigning the categorical predictor variable to the x-axis
+           y = Water_Consumption, # assigning the response variable to the y-axis
+           fill = Workout_Type)) +  # fill color for boxes
+  
+ # first layer: boxplot 
+   geom_boxplot(color = "black") + # outline color (black)
 
-
+# second layer: jitter points of raw data   
+  geom_jitter(height = 0, # making sure the jitter points don't move along y-axis
+              width = 0.15, # narrowing the width of the jitter points
+              alpha = 0.6, # making slightly transparent in case of overlap 
+              shape = 21, # changing the shape of the points
+              aes(fill = Workout_Type, # fill color for the points
+                  color = Workout_Type)) +  # outline color for the points
+  
+  theme(plot.title = element_text(size = 12), # adjusting title size
+        plot.subtitle = element_text(size = 8), # adjusting subtitle size
+        legend.position = "none", # removing the legend
+        panel.background = element_rect(fill = "white"), # changing the background color
+        panel.grid.major = element_line(color = NA), # removing the color from the grid lines 
+        panel.grid.minor = element_line(color = NA), # removing the color from the grid lines 
+        axis.line = element_line(color = "black")) +  # adding back the y and x axis lines   
+  
+  scale_fill_manual(values = c("cardiovascular" = "darkorchid1", 
+                               "strength" = "deepskyblue")) + # changing the fill of the boxplots 
+  
+  scale_color_manual(values = c("cardiovascular" = "yellow",
+                                "strength" = "red")) +  # changing the outline color of the jitter points
+  
+  labs(title = "How Water Intake Compares to the Type of Workout",  # setting title
+       subtitle = "By Ethan Mathews", # adding a subtitle
+       x = "Workout Type",  # cleaning the x-axis label
+       y = "Water Consumed (liters)")   # cleaning the y-axis label
 
 
 ```
