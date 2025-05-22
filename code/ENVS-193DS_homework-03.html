@@ -122,18 +122,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>,<span class="st">"PersonalStudyHome.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>,<span class="st">"PersonalStudyHome.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="part-2.-problems" class="level2">
 <h2 class="anchored" data-anchor-id="part-2.-problems">Part 2. Problems</h2>
 <section id="problem-1.-personal-data" class="level3">
 <h3 class="anchored" data-anchor-id="problem-1.-personal-data">Problem 1. Personal Data</h3>
-<section id="a." class="level4">
-<h4 class="anchored" data-anchor-id="a.">a.</h4>
+<section id="a.-data-summarizing" class="level4">
+<h4 class="anchored" data-anchor-id="a.-data-summarizing">a. Data Summarizing</h4>
 <p>The data can be summarized by comparing the distribution of water consumption (liters) between cardiovascular and strength training workouts using a box plot that visually represents the distribution and spread of the data, showing the minimum, first quartile, median, third quartile, and maximum, with the underlying data displayed as jitter points. This comparison is informative for me because I typically associate cardiovascular workouts with being more physically demanding and sweat-intensive, potentially leading to greater water intake than strength training sessions, so I expect that water consumption will be higher on days I run or bike compared to when I lift weights.</p>
 </section>
-<section id="b." class="level4">
-<h4 class="anchored" data-anchor-id="b.">b.</h4>
+<section id="b.-visualization" class="level4">
+<h4 class="anchored" data-anchor-id="b.-visualization">b. Visualization</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data, <span class="co"># calling in data frame</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Workout_Type, <span class="co"># assigning the categorical predictor variable to the x-axis</span></span>
@@ -169,14 +172,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"By Ethan Mathews"</span>, <span class="co"># adding a subtitle</span></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Workout Type"</span>,  <span class="co"># cleaning the x-axis label</span></span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Water Consumed (liters)"</span>)   <span class="co"># cleaning the y-axis label</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 1 row containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -186,78 +181,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="c." class="level4">
-<h4 class="anchored" data-anchor-id="c.">c.&nbsp;</h4>
+<section id="c.-caption" class="level4">
+<h4 class="anchored" data-anchor-id="c.-caption">c.&nbsp;Caption</h4>
 <p><strong>Figure 1. Cardiovascular workouts are associated with higher water intake.</strong> Data from <em>Personal study conducted for Data Science in Environmental Studies</em> (Mathews, E. 2025). Water consumption (liters) was recorded for two types of workouts, cardiovascular (n = 11) and strength training (n = 22). Cardiovascular workouts had a higher median and a more narrow spread of water intake compared to strength training. Transparent open circles represent individual observations and the box plots represent the distribution of values for each group. Colors represent the workout type (purple = cardiovascular and blue = strength training).</p>
 </section>
-<section id="d." class="level4">
-<h4 class="anchored" data-anchor-id="d.">d.</h4>
+<section id="d.-table-presentation" class="level4">
+<h4 class="anchored" data-anchor-id="d.-table-presentation">d.&nbsp;Table Presentation</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="co"># starting data frame </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span> <span class="co"># clean names to standardize format </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(water_consumption, workout_type) <span class="sc">|&gt;</span> <span class="co"># selecting specific columns </span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">workout_type =</span> <span class="fu">recode</span>(workout_type, <span class="at">cardiovascular =</span> <span class="st">"Cardiovascular"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                               <span class="at">strength =</span> <span class="st">"Strength"</span>)) <span class="co"># cleaning table names for future table reference </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="co"># starting data frame </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span> <span class="co"># clean names to standardize format </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(water_consumption, workout_type) <span class="sc">|&gt;</span> <span class="co"># selecting specific columns </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">workout_type =</span> <span class="fu">recode</span>(workout_type, <span class="at">cardiovascular =</span> <span class="st">"Cardiovascular"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                               <span class="at">strength =</span> <span class="st">"Strength"</span>)) <span class="co"># cleaning table names for future table reference </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data_summary <span class="ot">&lt;-</span> data_clean <span class="sc">|&gt;</span> <span class="co"># starting data frame </span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(workout_type) <span class="sc">|&gt;</span> <span class="co"># grouping by the workout type </span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(), <span class="co"># including the number of observations </span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">median =</span> <span class="fu">median</span>(water_consumption, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># median calculation </span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">quantile</span>(water_consumption, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># lower quantile calculation </span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">quantile</span>(water_consumption, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># upper quantile calculation </span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">minimum =</span> <span class="fu">min</span>(water_consumption, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># minimum value calculation </span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">maximum =</span> <span class="fu">max</span>(water_consumption, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> <span class="co"># maximum value calculation </span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(median, lower, upper, minimum, maximum), </span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>           <span class="sc">~</span> <span class="fu">round</span>(.x, <span class="dv">1</span>)))  <span class="co"># rounding the previous calculations to 1 decimal point</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>data_summary <span class="sc">|&gt;</span> <span class="co"># starting data frame that has summary statistics</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> <span class="co"># package for summary table </span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="fu">html</span>(<span class="st">"&lt;strong&gt;Table 1.&lt;/strong&gt; Summary Statistics of Water Intake (liters) by Workout Type"</span>)) <span class="sc">|&gt;</span> <span class="co"># creating and bolding table header/title</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">workout_type =</span> <span class="st">"Workout Type"</span>,</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="st">"Number of Observations"</span>,</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">median =</span> <span class="st">"Median"</span>,</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="st">"Lower Quantile"</span>,</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="st">"Upper Quantile"</span>,</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">minimum =</span> <span class="st">"Minimum"</span>,</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">maximum =</span> <span class="st">"Maximum"</span> <span class="co"># cleaning the column names for the table </span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_align</span>(</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="st">"left"</span>,</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> workout_type) <span class="sc">|&gt;</span> <span class="co"># changing the alignment </span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_align</span>(</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="st">"center"</span>,</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">c</span>(n, median, lower, upper, minimum, maximum)) <span class="sc">|&gt;</span> <span class="co"># changing to center alignment </span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>),</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="fu">everything</span>())) <span class="sc">|&gt;</span> <span class="co"># making the column names bold </span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">table.font.size =</span> <span class="st">"small"</span>, <span class="co"># changing font size so it can fit better </span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">heading.align =</span> <span class="st">"left"</span>) <span class="co"># align the title to the left</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_summary <span class="ot">&lt;-</span> data_clean <span class="sc">|&gt;</span> <span class="co"># starting data frame </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(workout_type) <span class="sc">|&gt;</span> <span class="co"># grouping by the workout type </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(), <span class="co"># including the number of observations </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">median =</span> <span class="fu">median</span>(water_consumption, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># median calculation </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">quantile</span>(water_consumption, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># lower quantile calculation </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">quantile</span>(water_consumption, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># upper quantile calculation </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">minimum =</span> <span class="fu">min</span>(water_consumption, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># minimum value calculation </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">maximum =</span> <span class="fu">max</span>(water_consumption, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> <span class="co"># maximum value calculation </span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(median, lower, upper, minimum, maximum), </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>           <span class="sc">~</span> <span class="fu">round</span>(.x, <span class="dv">1</span>)))  <span class="co"># rounding the previous calculations to 1 decimal point</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>data_summary <span class="sc">|&gt;</span> <span class="co"># starting data frame that has summary statistics</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> <span class="co"># package for summary table </span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="fu">html</span>(<span class="st">"&lt;strong&gt;Table 1.&lt;/strong&gt; Summary Statistics of Water Intake (liters) by Workout Type"</span>)) <span class="sc">|&gt;</span> <span class="co"># creating and bolding table header/title</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">workout_type =</span> <span class="st">"Workout Type"</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="st">"Number of Observations"</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">median =</span> <span class="st">"Median"</span>,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="st">"Lower Quantile"</span>,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="st">"Upper Quantile"</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">minimum =</span> <span class="st">"Minimum"</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">maximum =</span> <span class="st">"Maximum"</span> <span class="co"># cleaning the column names for the table </span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_align</span>(</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="st">"left"</span>,</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> workout_type) <span class="sc">|&gt;</span> <span class="co"># changing the alignment </span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_align</span>(</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="st">"center"</span>,</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">c</span>(n, median, lower, upper, minimum, maximum)) <span class="sc">|&gt;</span> <span class="co"># changing to center alignment </span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>),</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="fu">everything</span>())) <span class="sc">|&gt;</span> <span class="co"># making the column names bold </span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">table.font.size =</span> <span class="st">"small"</span>, <span class="co"># changing font size so it can fit better </span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">heading.align =</span> <span class="st">"left"</span>) <span class="co"># align the title to the left</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="ghnuyxzemt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ghnuyxzemt table {
+<div id="drirysrtfn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#drirysrtfn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ghnuyxzemt thead, #ghnuyxzemt tbody, #ghnuyxzemt tfoot, #ghnuyxzemt tr, #ghnuyxzemt td, #ghnuyxzemt th {
+#drirysrtfn thead, #drirysrtfn tbody, #drirysrtfn tfoot, #drirysrtfn tr, #drirysrtfn td, #drirysrtfn th {
   border-style: none;
 }
 
-#ghnuyxzemt p {
+#drirysrtfn p {
   margin: 0;
   padding: 0;
 }
 
-#ghnuyxzemt .gt_table {
+#drirysrtfn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -283,12 +278,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#ghnuyxzemt .gt_caption {
+#drirysrtfn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ghnuyxzemt .gt_title {
+#drirysrtfn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -300,7 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#ghnuyxzemt .gt_subtitle {
+#drirysrtfn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -312,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#ghnuyxzemt .gt_heading {
+#drirysrtfn .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -324,13 +319,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ghnuyxzemt .gt_bottom_border {
+#drirysrtfn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ghnuyxzemt .gt_col_headings {
+#drirysrtfn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -345,7 +340,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ghnuyxzemt .gt_col_heading {
+#drirysrtfn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -365,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#ghnuyxzemt .gt_column_spanner_outer {
+#drirysrtfn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -377,15 +372,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#ghnuyxzemt .gt_column_spanner_outer:first-child {
+#drirysrtfn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ghnuyxzemt .gt_column_spanner_outer:last-child {
+#drirysrtfn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ghnuyxzemt .gt_column_spanner {
+#drirysrtfn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -397,11 +392,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#ghnuyxzemt .gt_spanner_row {
+#drirysrtfn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ghnuyxzemt .gt_group_heading {
+#drirysrtfn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -427,7 +422,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#ghnuyxzemt .gt_empty_group_heading {
+#drirysrtfn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -442,15 +437,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#ghnuyxzemt .gt_from_md > :first-child {
+#drirysrtfn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ghnuyxzemt .gt_from_md > :last-child {
+#drirysrtfn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ghnuyxzemt .gt_row {
+#drirysrtfn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -469,7 +464,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#ghnuyxzemt .gt_stub {
+#drirysrtfn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -482,7 +477,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ghnuyxzemt .gt_stub_row_group {
+#drirysrtfn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -496,15 +491,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#ghnuyxzemt .gt_row_group_first td {
+#drirysrtfn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ghnuyxzemt .gt_row_group_first th {
+#drirysrtfn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ghnuyxzemt .gt_summary_row {
+#drirysrtfn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -514,16 +509,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ghnuyxzemt .gt_first_summary_row {
+#drirysrtfn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ghnuyxzemt .gt_first_summary_row.thick {
+#drirysrtfn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ghnuyxzemt .gt_last_summary_row {
+#drirysrtfn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -533,7 +528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ghnuyxzemt .gt_grand_summary_row {
+#drirysrtfn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -543,7 +538,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ghnuyxzemt .gt_first_grand_summary_row {
+#drirysrtfn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -553,7 +548,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#ghnuyxzemt .gt_last_grand_summary_row_top {
+#drirysrtfn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -563,11 +558,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ghnuyxzemt .gt_striped {
+#drirysrtfn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ghnuyxzemt .gt_table_body {
+#drirysrtfn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -576,7 +571,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ghnuyxzemt .gt_footnotes {
+#drirysrtfn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -590,7 +585,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ghnuyxzemt .gt_footnote {
+#drirysrtfn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -599,7 +594,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ghnuyxzemt .gt_sourcenotes {
+#drirysrtfn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -613,7 +608,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ghnuyxzemt .gt_sourcenote {
+#drirysrtfn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -621,72 +616,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ghnuyxzemt .gt_left {
+#drirysrtfn .gt_left {
   text-align: left;
 }
 
-#ghnuyxzemt .gt_center {
+#drirysrtfn .gt_center {
   text-align: center;
 }
 
-#ghnuyxzemt .gt_right {
+#drirysrtfn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ghnuyxzemt .gt_font_normal {
+#drirysrtfn .gt_font_normal {
   font-weight: normal;
 }
 
-#ghnuyxzemt .gt_font_bold {
+#drirysrtfn .gt_font_bold {
   font-weight: bold;
 }
 
-#ghnuyxzemt .gt_font_italic {
+#drirysrtfn .gt_font_italic {
   font-style: italic;
 }
 
-#ghnuyxzemt .gt_super {
+#drirysrtfn .gt_super {
   font-size: 65%;
 }
 
-#ghnuyxzemt .gt_footnote_marks {
+#drirysrtfn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ghnuyxzemt .gt_asterisk {
+#drirysrtfn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ghnuyxzemt .gt_indent_1 {
+#drirysrtfn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ghnuyxzemt .gt_indent_2 {
+#drirysrtfn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ghnuyxzemt .gt_indent_3 {
+#drirysrtfn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ghnuyxzemt .gt_indent_4 {
+#drirysrtfn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ghnuyxzemt .gt_indent_5 {
+#drirysrtfn .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ghnuyxzemt .katex-display {
+#drirysrtfn .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ghnuyxzemt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#drirysrtfn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -710,10 +705,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td class="gt_row gt_left" headers="workout_type">Cardiovascular</td>
 <td class="gt_row gt_center" headers="n">12</td>
-<td class="gt_row gt_center" headers="median">3.0</td>
-<td class="gt_row gt_center" headers="lower">2.8</td>
+<td class="gt_row gt_center" headers="median">2.9</td>
+<td class="gt_row gt_center" headers="lower">2.7</td>
 <td class="gt_row gt_center" headers="upper">3.2</td>
-<td class="gt_row gt_center" headers="minimum">2.4</td>
+<td class="gt_row gt_center" headers="minimum">2.3</td>
 <td class="gt_row gt_center" headers="maximum">3.6</td>
 </tr>
 <tr class="even">
@@ -735,21 +730,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="problem-2.-affective-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="problem-2.-affective-visualization">Problem 2. Affective visualization</h3>
-<section id="a.-1" class="level4">
-<h4 class="anchored" data-anchor-id="a.-1">a.</h4>
-<p>When I first thought about affective data visualization, I was drawn to the idea of humanizing data—transforming numbers on a spreadsheet into something more tangible and relatable. For my project, I plan to represent average water intake by illustrating body parts like back, arms, chest, legs, abs, shoulders, and lungs for endurance along the x-axis. Instead of traditional bars or box plots, each muscle group will be visually represented and “filled” with water to reflect the average amount consumed during workouts targeting that area. To complement this, a small flame icon above each body part will indicate average workout intensity, with four levels/rings that represent the level of intensity for that body part (more rings filled = higher average intensity). This approach personalizes the data, highlighting the physical connection between hydration and strain while making the visualization emotionally engaging and easy to interpret.</p>
+<section id="a.-what-an-affective-visual-looks-like" class="level4">
+<h4 class="anchored" data-anchor-id="a.-what-an-affective-visual-looks-like">a. What an Affective Visual Looks Like</h4>
+<p>When I first thought about affective data visualization, I was drawn to the idea of humanizing data—transforming numbers on a spreadsheet into something more tangible and relatable. For my project, I plan to represent average water intake by illustrating body parts like back, arms, chest, legs, abs, and shoulders along the x-axis. Instead of traditional bars or box plots, each muscle group will be visually represented and “filled” with water to reflect the average amount consumed during workouts targeting that area. To complement this, a small flame icon above each body part will indicate average workout intensity, with four levels/rings that represent the level of intensity for that body part (more rings filled = higher average intensity). This approach personalizes the data, highlighting the physical connection between hydration and strain while making the visualization emotionally engaging and easy to interpret.</p>
 </section>
-<section id="b.-1" class="level4">
-<h4 class="anchored" data-anchor-id="b.-1">b.</h4>
+<section id="b.-sketch-of-idea" class="level4">
+<h4 class="anchored" data-anchor-id="b.-sketch-of-idea">b. Sketch of Idea</h4>
+<p>The sketch is a rough estimate and are not the correct values for the average water intake and intensity level. This will be done in the draft. <img src="Affective_Data.jpg" class="img-fluid" alt="Water intake (liters) by workout type"></p>
+</section>
+<section id="c.-draft-of-visualization" class="level4">
+<h4 class="anchored" data-anchor-id="c.-draft-of-visualization">c.&nbsp;Draft of Visualization</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data_summary <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="co"># starting data frame creating new summary data frame </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span>  <span class="co"># cleaning the names to standardize format </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(water_consumption, intensity, body_part_trained) <span class="sc">|&gt;</span> <span class="co"># selecting necessary columns </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>( </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">intensity_score =</span> <span class="fu">case_when</span>( <span class="co"># creating a new numeric column based on the intensity level</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      intensity <span class="sc">==</span> <span class="st">"low"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      intensity <span class="sc">==</span> <span class="st">"medium"</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      intensity <span class="sc">==</span> <span class="st">"hard"</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      intensity <span class="sc">==</span> <span class="st">"extreme"</span> <span class="sc">~</span> <span class="dv">4</span>, <span class="co"># associating the levels with numerical values so I can calculate the average</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_real_</span>)) <span class="sc">|&gt;</span>  <span class="co"># if it doesn't match any label it will assign it NA</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(body_part_trained) <span class="sc">|&gt;</span> <span class="co"># grouping the body parts together to calculate averages</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>( </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_water =</span> <span class="fu">mean</span>(water_consumption, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># calculating the mean of the water consumed by the different body parts </span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_intensity =</span> <span class="fu">mean</span>(intensity_score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># calculating the average intensity by the different body parts </span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>[insert image here once completed]</p>
+</section>
+<section id="d.-artist-statement" class="level4">
+<h4 class="anchored" data-anchor-id="d.-artist-statement">d.&nbsp;Artist Statement</h4>
+<p>The content of my piece: This piece visualizes my personal data collected over the past weeks, showing the average amount of water I consumed relative to the body part I trained, alongside the intensity of each workout. By humanizing the data through illustrated muscle groups and symbolic flame icons, the visualization makes the information more engaging and accessible than reviewing raw notes or spreadsheets.</p>
+<p>The influences: The inspiration came from the lecture examples, particularly the violin plots, which sparked the idea of representing each muscle group as a visual shape. From there, I developed the concept of filling each body part with a water level to reflect hydration while layering in flame icons to communicate workout intensity in an emotionally resonant way.</p>
+<p>The form of your work: The piece is a digital drawing that combines artistic illustration with data-informed storytelling, allowing for customized body part silhouettes enhanced with color and symbolic elements to convey both quantitative (water intake) and qualitative (intensity) data. This format offers a clear, expressive, and adaptable way to represent personal metrics that can be reused as a fun way to track future trends.</p>
+<p>The process: I was initially confronted with a creative block and I needed to take a step back to reexamine my data not just as numbers but as a reflection of physical effort, leading me to abandon traditional charting and instead visualize the body as a site of intensity. This reframing allowed me to design an illustration where hydration and exertion are mapped directly onto the body, transforming abstract data into something spatial and personal.</p>
+</section>
+</section>
+<section id="problem-3.-statistical-critique" class="level3">
+<h3 class="anchored" data-anchor-id="problem-3.-statistical-critique">Problem 3. Statistical Critique</h3>
+<section id="a.-revisit-and-summarize" class="level4">
+<h4 class="anchored" data-anchor-id="a.-revisit-and-summarize">a. Revisit and Summarize</h4>
+<p>To address their main research question, whether newer groundwater wells are being drilled deeper than older wells in response to declining water tables, the authors use Spearman’s rank correlation. This non-parametric test evaluates the relationship between well construction year (predictor) and well depth (response) across ~39 million wells in 40 countries. A significant positive Spearman ρ indicates that newer wells tend to be deeper, suggesting adaptation to groundwater decline, while a non-significant or negative correlation implies limited or no adaptive response. This approach allows the authors to assess whether well construction practices are keeping pace with groundwater depletion over space and time</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Affective_Data.jpg" class="img-fluid figure-img"></p>
-<figcaption>Water intake (liters) by workout type</figcaption>
+<p><img src="StatisticalCritiqueFigure.jpg" class="img-fluid figure-img"></p>
+<figcaption>Global groundwater wells at risk of running dry</figcaption>
 </figure>
 </div>
 </section>
-<section id="c.-1" class="level4">
-<h4 class="anchored" data-anchor-id="c.-1">c.&nbsp;</h4>
+<section id="b.-visual-clarity" class="level4">
+<h4 class="anchored" data-anchor-id="b.-visual-clarity">b. Visual Clarity</h4>
+<p>The authors effectively visualize their statistical results in Figure 2, using a clear layout where the x-axis lists countries and the primary y-axis shows the fraction of spatial areas with well-deepening trends (Spearman ρ &gt; 0). A secondary y-axis on the right interprets whether well-deepening or shallowing trends are more common. The figure also includes a time period color key that distinguishes five intervals, enabling comparison of trends over time, though it summarizes model output rather than displaying raw data or uncertainty measures like standard error.</p>
+</section>
+<section id="c.-aesthetic-clarity" class="level4">
+<h4 class="anchored" data-anchor-id="c.-aesthetic-clarity">c.&nbsp;Aesthetic Clarity</h4>
+<p>The authors handle visual clutter effectively by compiling multiple dimensions, country, time period, and statistical trends, into a single, well-organized figure. While the figure takes time to interpret, this integrated approach minimizes the need for multiple separate visuals and keeps the overall paper cleaner. The data:ink ratio is high, as nearly all visual elements communicate meaningful information without unnecessary decoration.</p>
+</section>
+<section id="d.-recommendations" class="level4">
+<h4 class="anchored" data-anchor-id="d.-recommendations">d.&nbsp;Recommendations</h4>
+<p>One recommendation is to expand the width of the columns representing each country on the x-axis, which would reduce the overlap of points corresponding to different time periods and make the figure easier to interpret. By allowing the points to move horizontally the visual clutter would be minimized. Additionally, the spatial distribution of countries, currently shown in a compact and crowded panel, could be moved into a separate map or supplementary figure. This would allow for a more detailed and meaningful visualization of the spatial distribution of the groundwater well trends, which is a key component of the study’s analysis. Also, some data points are positioned at or beyond the visual bounds of the figure, so adjusting the axis limits to ensure all points fall clearly within the plotting area would improve the figure’s professionalism and readability.</p>
 </section>
 </section>
 </section>
