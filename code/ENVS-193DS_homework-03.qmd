@@ -205,6 +205,12 @@ To address their main research question, whether newer groundwater wells are bei
 The authors effectively visualize their statistical results in Figure 2, using a clear layout where the x-axis lists countries and the primary y-axis shows the fraction of spatial areas with well-deepening trends (Spearman ρ > 0). A secondary y-axis on the right interprets whether well-deepening or shallowing trends are more common. The figure also includes a time period color key that distinguishes five intervals, enabling comparison of trends over time, though it summarizes model output rather than displaying raw data or uncertainty measures like standard error.
 
 
+#### c. Aesthetic Clarity 
+The authors handle visual clutter effectively by compiling multiple dimensions, country, time period, and statistical trends, into a single, well-organized figure. While the figure takes time to interpret, this integrated approach minimizes the need for multiple separate visuals and keeps the overall paper cleaner. The data:ink ratio is high, as nearly all visual elements communicate meaningful information without unnecessary decoration.
+
+
+#### d. Recommendations
+One recommendation is to expand the width of the columns representing each country on the x-axis, which would reduce the overlap of points corresponding to different time periods and make the figure easier to interpret. By allowing the points to move horizontally the visual clutter would be minimized. Additionally, the spatial distribution of countries, currently shown in a compact and crowded panel, could be moved into a separate map or supplementary figure. This would allow for a more detailed and meaningful visualization of the spatial distribution of the groundwater well trends, which is a key component of the study’s analysis. Also, some data points are positioned at or beyond the visual bounds of the figure, so adjusting the axis limits to ensure all points fall clearly within the plotting area would improve the figure’s professionalism and readability.
 
 
 
