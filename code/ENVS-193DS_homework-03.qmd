@@ -21,6 +21,9 @@ library(here)
 
 library(readxl)
 
+library(dplyr)
+
+
 data <- read.csv(here("data","PersonalStudyHome.csv"))
 
 ```
@@ -143,20 +146,52 @@ data_summary |> # starting data frame that has summary statistics
 ### Problem 2. Affective visualization
 
 #### a. 
-When I first thought about affective data visualization, I was drawn to the idea of humanizing data—transforming numbers on a spreadsheet into something more tangible and relatable. For my project, I plan to represent average water intake by illustrating body parts like back, arms, chest, legs, abs, shoulders, and lungs for endurance along the x-axis. Instead of traditional bars or box plots, each muscle group will be visually represented and "filled" with water to reflect the average amount consumed during workouts targeting that area. To complement this, a small flame icon above each body part will indicate average workout intensity, with four levels/rings that represent the level of intensity for that body part (more rings filled = higher average intensity). This approach personalizes the data, highlighting the physical connection between hydration and strain while making the visualization emotionally engaging and easy to interpret.
+When I first thought about affective data visualization, I was drawn to the idea of humanizing data—transforming numbers on a spreadsheet into something more tangible and relatable. For my project, I plan to represent average water intake by illustrating body parts like back, arms, chest, legs, abs, and shoulders along the x-axis. Instead of traditional bars or box plots, each muscle group will be visually represented and "filled" with water to reflect the average amount consumed during workouts targeting that area. To complement this, a small flame icon above each body part will indicate average workout intensity, with four levels/rings that represent the level of intensity for that body part (more rings filled = higher average intensity). This approach personalizes the data, highlighting the physical connection between hydration and strain while making the visualization emotionally engaging and easy to interpret.
 
 
 #### b. 
-
+The sketch is a rough estimate and are not the correct values for the average water intake and intensity level. This will be done in the draft. 
 ![Water intake (liters) by workout type](Affective_Data.jpg)
 
 
 #### c. 
+```{r}
+
+data_summary <- data |> # starting data frame creating new summary data frame 
+  clean_names() |>  # cleaning the names to standardize format 
+  select(water_consumption, intensity, body_part_trained) |> # selecting necessary columns 
+  mutate( 
+    intensity_score = case_when( # creating a new numeric column based on the intensity level
+      intensity == "low" ~ 1,
+      intensity == "medium" ~ 2,
+      intensity == "hard" ~ 3,
+      intensity == "extreme" ~ 4, # associating the levels with numerical values so I can calculate the average
+      TRUE ~ NA_real_)) |>  # if it doesn't match any label it will assign it NA
+  
+  group_by(body_part_trained) |> # grouping the body parts together to calculate averages
+  summarize( 
+    avg_water = mean(water_consumption, na.rm = TRUE), # calculating the mean of the water consumed by the different body parts 
+    avg_intensity = mean(intensity_score, na.rm = TRUE), # calculating the average intensity by the different body parts 
+    n = n())
+
+
+```
 
 
 
 
+#### d. 
+The content of my piece:
+This piece visualizes my personal data collected over the past weeks, showing the average amount of water I consumed relative to the body part I trained, alongside the intensity of each workout. By humanizing the data through illustrated muscle groups and symbolic flame icons, the visualization makes the information more engaging and accessible than reviewing raw notes or spreadsheets.
 
+The influences:
+The inspiration came from the lecture examples, particularly the violin plots, which sparked the idea of representing each muscle group as a visual shape. From there, I developed the concept of filling each body part with a water level to reflect hydration while layering in flame icons to communicate workout intensity in an emotionally resonant way.
+
+The form of your work:
+The piece is a digital drawing that combines artistic illustration with data-informed storytelling, allowing for customized body part silhouettes enhanced with color and symbolic elements to convey both quantitative (water intake) and qualitative (intensity) data. This format offers a clear, expressive, and adaptable way to represent personal metrics that can be reused as a fun way to track future trends.
+
+The process:
+I was initially confronted with a creative block and I needed to take a step back to reexamine my data not just as numbers but as a reflection of physical effort, leading me to abandon traditional charting and instead visualize the body as a site of intensity. This reframing allowed me to design an illustration where hydration and exertion are mapped directly onto the body, transforming abstract data into something spatial and personal. 
 
 
 
