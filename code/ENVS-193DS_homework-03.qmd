@@ -147,14 +147,10 @@ When I first thought about affective data visualization, I was drawn to the idea
 
 
 #### b. 
-```{r}
+![Water intake (liters) by workout type](Affective_Data.jpg)
 
 
-
-
-
-
-```
+#### c. 
 
 
 
