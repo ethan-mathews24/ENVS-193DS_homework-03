@@ -2,7 +2,12 @@
 title: "ENVS-193DS_homework-03"
 author: "Ethan Mathews"
 date: "05/24/2025"
-format: html
+format:
+  html:
+    toc: true 
+execute:
+  message: false 
+  warning: false 
 ---
 
 link to GitHub Repository: https://github.com/ethan-mathews24/ENVS-193DS_homework-03.git
@@ -22,7 +27,6 @@ library(here)
 library(readxl)
 
 library(dplyr)
-
 
 data <- read.csv(here("data","PersonalStudyHome.csv"))
 
@@ -198,7 +202,7 @@ I was initially confronted with a creative block and I needed to take a step bac
 #### a. Revisit and Summarize
 To address their main research question, whether newer groundwater wells are being drilled deeper than older wells in response to declining water tables, the authors use Spearman’s rank correlation. This non-parametric test evaluates the relationship between well construction year (predictor) and well depth (response) across ~39 million wells in 40 countries. A significant positive Spearman ρ indicates that newer wells tend to be deeper, suggesting adaptation to groundwater decline, while a non-significant or negative correlation implies limited or no adaptive response. This approach allows the authors to assess whether well construction practices are keeping pace with groundwater depletion over space and time
 
-![Global groundwater wells at risk of running dry](StatisticalCritiqueFigure.jpg)
+![Global groundwater wells at risk of running dry (Scott Jasechko & Debra Perrone)](StatisticalCritiqueFigure.jpg)
 
 
 #### b. Visual Clarity
