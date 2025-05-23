@@ -28,6 +28,8 @@ library(readxl)
 
 library(dplyr)
 
+library(fs) # do this in console at the end of the assignment to get the most updated form
+
 data <- read.csv(here("data","PersonalStudyHome.csv"))
 
 ```
