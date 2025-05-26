@@ -28,7 +28,7 @@ library(readxl)
 
 library(dplyr)
 
-library(fs) # do this in console at the end of the assignment to get the most updated form
+library(fs) # do this in console at the end of the assignment to get the most updated form fs::dir_tree(path = ".", recurse = TRUE)
 
 data <- read.csv(here("data","PersonalStudyHome.csv"))
 
@@ -87,7 +87,7 @@ ggplot(data = data, # calling in data frame
 
 
 #### c. Caption 
-**Figure 1. Cardiovascular workouts are associated with higher water intake.** Data from *Personal study conducted for Data Science in Environmental Studies* (Mathews, E. 2025). Water consumption (liters) was recorded for two types of workouts, cardiovascular (n = 11) and strength training (n = 22). Cardiovascular workouts had a higher median and a more narrow spread of water intake compared to strength training. Transparent open circles represent individual observations and the box plots represent the distribution of values for each group. Colors represent the workout type (purple = cardiovascular and blue = strength training).  
+**Figure 1. Cardiovascular workouts are associated with higher water intake.** Data from *Personal study conducted for Data Science in Environmental Studies* (Mathews, E. 2025). Water consumption (liters) was recorded for two types of workouts, cardiovascular (n = xx) and strength training (n = xx). Cardiovascular workouts had a higher median and a more narrow spread of water intake compared to strength training. Transparent open circles represent individual observations (yellow outline = cardiovascular and red outline = strength) and the box plots represent the distribution of values for each group. For the box plots, the colors represent the workout type (purple = cardiovascular and blue = strength training).  
 
 
 #### d. Table Presentation
@@ -124,10 +124,10 @@ data_summary |> # starting data frame that has summary statistics
   
   cols_label(
     workout_type = "Workout Type",
-    n = "Number of Observations",
+    n = "Number of \n Observations",
     median = "Median",
-    lower = "Lower Quantile",
-    upper = "Upper Quantile",
+    lower = "Lower \n Quantile",
+    upper = "Upper \n Quantile",
     minimum = "Minimum",
     maximum = "Maximum" # cleaning the column names for the table 
   ) |> 
@@ -151,7 +151,7 @@ data_summary |> # starting data frame that has summary statistics
 ### Problem 2. Affective visualization
 
 #### a. What an Affective Visual Looks Like 
-When I first thought about affective data visualization, I was drawn to the idea of humanizing data—transforming numbers on a spreadsheet into something more tangible and relatable. For my project, I plan to represent average water intake by illustrating body parts like back, arms, chest, legs, abs, and shoulders along the x-axis. Instead of traditional bars or box plots, each muscle group will be visually represented and "filled" with water to reflect the average amount consumed during workouts targeting that area. To complement this, a small flame icon above each body part will indicate average workout intensity, with four levels/rings that represent the level of intensity for that body part (more rings filled = higher average intensity). This approach personalizes the data, highlighting the physical connection between hydration and strain while making the visualization emotionally engaging and easy to interpret.
+When I first thought about affective data visualization, I was drawn to the idea of humanizing data—transforming numbers on a spreadsheet into something more tangible and relatable. For my project, I plan to represent average water intake by illustrating body parts like back, arms, chest, legs, abs, and shoulders along the x-axis. Instead of traditional bars or box plots, each muscle group will be visually represented and "filled" with water to reflect the average amount consumed during workouts targeting that area. To complement this, a small flame icon above each body part will indicate average workout intensity, with four levels/rings that represents the average level of intensity for that body part (more rings filled = higher average intensity). This approach personalizes the data, highlighting the physical connection between hydration and strain while making the visualization emotionally engaging and easy to interpret.
 
 
 #### b. Sketch of Idea 
@@ -178,7 +178,6 @@ data_summary <- data |> # starting data frame creating new summary data frame
     avg_water = mean(water_consumption, na.rm = TRUE), # calculating the mean of the water consumed by the different body parts 
     avg_intensity = mean(intensity_score, na.rm = TRUE), # calculating the average intensity by the different body parts 
     n = n())
-
 
 ```
 

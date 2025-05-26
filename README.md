@@ -7,7 +7,7 @@ Assignment/Homework 03 for Data Science in Environmental Studies (ENVS 193DS)
 An aspect of this R project is that it explores the relationship between workout intensity, body part trained, and water consumption using personal observational data collected over several weeks. The final visualization is a digitally illustrated figure that maps hydration and effort directly onto muscle groups, combining data-driven insights with creative representation. Statistical summaries were created in R, and visual elements were designed to make the data more intuitive, engaging, and personally meaningful. The project is inspired by affective data visualization principles and integrates both analytical and artistic approaches. 
 
 #### Paper Critique Summary
-As part of this project, I reviewed Jasechko & Perrone (2021), [here](DOI: 10.1126/science.abc2755), which explores whether groundwater wells are being constructed deeper over time in response to declining water tables. The authors used Spearman’s rank correlation to examine well depth trends and presented their findings through multi-layered figures. While the statistical representation was effective, I recommended improvements such as increasing x-axis spacing to reduce point overlap, separating the spatial distribution panel into its own figure, and adjusting plot bounds to avoid clipping points at the visual margins. 
+As part of this project, I reviewed Jasechko & Perrone (2021) (DOI: 10.1126/science.abc2755), which explores whether groundwater wells are being constructed deeper over time in response to declining water tables. The authors used Spearman’s rank correlation to examine well depth trends and presented their findings through multi-layered figures. While the statistical representation was effective, I recommended improvements such as increasing x-axis spacing to reduce point overlap, separating the spatial distribution panel into its own figure, and adjusting plot bounds to avoid clipping points at the visual margins. 
 
 
 ### Packages 
@@ -34,7 +34,6 @@ library(fs) # allows you to make a tree of the data structure
 
 ### Data and File Information
 
-├── Affective_Data.jpg
 ├── ENVS193DS-Homework03.Rproj
 ├── README.md
 ├── code 
