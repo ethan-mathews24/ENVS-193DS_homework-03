@@ -1,7 +1,7 @@
 ---
 title: "ENVS-193DS_homework-03"
 author: "Ethan Mathews"
-date: "05/24/2025"
+date: "05/27/2025"
 format:
   html:
     toc: true 
@@ -28,7 +28,7 @@ library(readxl)
 
 library(dplyr)
 
-library(fs) # do this in console at the end of the assignment to get the most updated form fs::dir_tree(path = ".", recurse = TRUE)
+library(fs) # fs::dir_tree(path = ".", recurse = TRUE) in console to get file structure 
 
 data <- read.csv(here("data","PersonalStudyHome.csv"))
 
@@ -181,7 +181,7 @@ data_summary <- data |> # starting data frame creating new summary data frame
 
 ```
 
-[insert image here once completed]
+![Water intake (liters) by workout type](Draftdata.jpg)
 
 
 #### d. Artist Statement 

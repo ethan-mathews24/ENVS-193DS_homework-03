@@ -36,8 +36,9 @@ library(fs) # allows you to make a tree of the data structure
 
 ├── ENVS193DS-Homework03.Rproj
 ├── README.md
-├── code 
+├── code
 │   ├── Affective_Data.jpg
+│   ├── Draftdata.jpg
 │   ├── ENVS-193DS_homework-03.html
 │   ├── ENVS-193DS_homework-03.qmd
 │   ├── ENVS-193DS_homework-03_files
