@@ -45,20 +45,9 @@ library(fs) # allows you to make a tree of the data structure
 │   │   ├── figure-html
 │   │   │   └── Personal Data Visualization-1.png
 │   │   └── libs
-│   │       ├── bootstrap
-│   │       │   ├── bootstrap-icons.css
-│   │       │   ├── bootstrap-icons.woff
-│   │       │   ├── bootstrap.min.css
-│   │       │   └── bootstrap.min.js
 │   │       ├── clipboard
-│   │       │   └── clipboard.min.js
 │   │       └── quarto-html
-│   │           ├── anchor.min.js
-│   │           ├── popper.min.js
-│   │           ├── quarto-syntax-highlighting.css
-│   │           ├── quarto.js
-│   │           ├── tippy.css
-│   │           └── tippy.umd.min.js
+│   │       
 │   └── StatisticalCritiqueFigure.jpg
 └── data
     └── PersonalStudyHome.csv
