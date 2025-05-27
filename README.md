@@ -34,13 +34,15 @@ library(fs) # allows you to make a tree of the data structure
 
 ### Data and File Information
 
+```
+
 ├── ENVS193DS-Homework03.Rproj
 ├── README.md
-├── code
-│   ├── Affective_Data.jpg
-│   ├── Draftdata.jpg
-│   ├── ENVS-193DS_homework-03.html
-│   ├── ENVS-193DS_homework-03.qmd
+├── code                                        # code folder 
+│   ├── Affective_Data.jpg                       
+│   ├── Draftdata.jpg                            
+│   ├── ENVS-193DS_homework-03.html             # rendered output 
+│   ├── ENVS-193DS_homework-03.qmd               
 │   ├── ENVS-193DS_homework-03_files
 │   │   ├── figure-html
 │   │   │   └── Personal Data Visualization-1.png
@@ -49,9 +51,10 @@ library(fs) # allows you to make a tree of the data structure
 │   │       └── quarto-html
 │   │       
 │   └── StatisticalCritiqueFigure.jpg
-└── data
+└── data                                        # data folder 
     └── PersonalStudyHome.csv
-
+    
+```
 
 ### Rendered Output 
 

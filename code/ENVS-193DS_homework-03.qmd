@@ -87,7 +87,7 @@ ggplot(data = data, # calling in data frame
 
 
 #### c. Caption 
-**Figure 1. Cardiovascular workouts are associated with higher water intake.** Data from *Personal study conducted for Data Science in Environmental Studies* (Mathews, E. 2025). Water consumption (liters) was recorded for two types of workouts, cardiovascular (n = xx) and strength training (n = xx). Cardiovascular workouts had a higher median and a more narrow spread of water intake compared to strength training. Transparent open circles represent individual observations (yellow outline = cardiovascular and red outline = strength) and the box plots represent the distribution of values for each group. For the box plots, the colors represent the workout type (purple = cardiovascular and blue = strength training).  
+**Figure 1. Cardiovascular workouts are associated with higher water intake.** Data from *Personal study conducted for Data Science in Environmental Studies* (Mathews, E. 2025). Water consumption (liters) was recorded for two types of workouts, cardiovascular (n = 14) and strength training (n = 24). Cardiovascular workouts had a higher median and a more narrow spread of water intake compared to strength training. Transparent open circles represent individual observations (yellow outline = cardiovascular and red outline = strength) and the box plots represent the distribution of values for each group. For the box plots, the colors represent the workout type (purple = cardiovascular and blue = strength training).  
 
 
 #### d. Table Presentation
@@ -124,10 +124,10 @@ data_summary |> # starting data frame that has summary statistics
   
   cols_label(
     workout_type = "Workout Type",
-    n = "Number of \n Observations",
+    n = "Number of Observations",
     median = "Median",
-    lower = "Lower \n Quantile",
-    upper = "Upper \n Quantile",
+    lower = "Lower Quantile",
+    upper = "Upper Quantile",
     minimum = "Minimum",
     maximum = "Maximum" # cleaning the column names for the table 
   ) |> 
