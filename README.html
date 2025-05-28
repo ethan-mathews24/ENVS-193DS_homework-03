@@ -354,35 +354,40 @@ display: none;
 
 <div id="envs193ds-homework03" class="section level1">
 <h1>ENVS193DS-Homework03</h1>
-<p>Assignment/Homework 03 for Data Science in Environmental Studies
-(ENVS 193DS)</p>
+<p>Spring Quarter, 2025 Assignment/Homework 03 for Data Science in
+Environmental Studies (ENVS 193DS)</p>
 <div id="general-information" class="section level3">
 <h3>General Information</h3>
+<p>The dataset is from a personal study that I have been conducting over
+the span of the Spring 2025 quarter. I was interested in the amount of
+water I drank depending on the type and length of workout.</p>
+<p>The published paper is: Jasechko, S., Perrone, D. (2021). Global
+groundwater wells at risk of running dry. <em>Science</em>, 372(6540),
+418-421. 10.1126/science.abc2755.</p>
 <div id="personal-data-exploration" class="section level4">
 <h4>Personal Data Exploration</h4>
-<p>An aspect of this R project is that it explores the relationship
-between workout intensity, body part trained, and water consumption
+<p>Aa part of this R project is that it explores the relationship
+between workout intensity, body parts trained, and water consumption
 using personal observational data collected over several weeks. The
 final visualization is a digitally illustrated figure that maps
 hydration and effort directly onto muscle groups, combining data-driven
 insights with creative representation. Statistical summaries were
 created in R, and visual elements were designed to make the data more
-intuitive, engaging, and personally meaningful. The project is inspired
-by affective data visualization principles and integrates both
-analytical and artistic approaches.</p>
+intuitive and personally meaningful. The project is inspired by
+affective data visualization principles and integrates both analytical
+and artistic approaches.</p>
 </div>
 <div id="paper-critique-summary" class="section level4">
 <h4>Paper Critique Summary</h4>
-<p>As part of this project, I reviewed Jasechko &amp; Perrone (2021)
-(DOI: 10.1126/science.abc2755), which explores whether groundwater wells
-are being constructed deeper over time in response to declining water
-tables. The authors used Spearman’s rank correlation to examine well
-depth trends and presented their findings through multi-layered figures.
-While the statistical representation was effective, I recommended
-improvements such as increasing x-axis spacing to reduce point overlap,
-separating the spatial distribution panel into its own figure, and
-adjusting plot bounds to avoid clipping points at the visual
-margins.</p>
+<p>As part of this project, I reviewed <em>Global groundwater wells at
+risk of running dry</em>, written by Scott Jasechko &amp; Debra Perrone
+(2021) (DOI: 10.1126/science.abc2755), which explores whether
+groundwater wells are being constructed deeper over time in response to
+declining water tables. The authors used Spearman’s rank correlation to
+examine well depth trends and presented their findings through
+multi-layered figures. While the statistical representation was
+effective, I recommended minor but important improvements to elevate the
+figures dimensionality.</p>
 </div>
 </div>
 <div id="packages" class="section level3">
@@ -399,21 +404,22 @@ library(here) # file organization
 
 library(readxl) # reading excel files 
 
-library(dplyr) # enables dataframe manipulation in an intuitive, user-friendly way
+library(dplyr) # enables dataframe manipulation
 
 library(fs) # allows you to make a tree of the data structure
 </code></pre>
 </div>
 <div id="data-and-file-information" class="section level3">
 <h3>Data and File Information</h3>
+<p>File Structure:</p>
 <pre><code>
 ├── ENVS193DS-Homework03.Rproj
 ├── README.md
-├── code
-│   ├── Affective_Data.jpg
-│   ├── Draftdata.jpg
-│   ├── ENVS-193DS_homework-03.html
-│   ├── ENVS-193DS_homework-03.qmd
+├── code                                        # code folder 
+│   ├── Affective_Data.jpg                       
+│   ├── Draftdata.jpg                            
+│   ├── ENVS-193DS_homework-03.html             # rendered output 
+│   ├── ENVS-193DS_homework-03.qmd               
 │   ├── ENVS-193DS_homework-03_files
 │   │   ├── figure-html
 │   │   │   └── Personal Data Visualization-1.png
@@ -422,13 +428,14 @@ library(fs) # allows you to make a tree of the data structure
 │   │       └── quarto-html
 │   │       
 │   └── StatisticalCritiqueFigure.jpg
-└── data
+└── data                                        # data folder 
     └── PersonalStudyHome.csv
     </code></pre>
+<p>All the code is in the code folder.</p>
 </div>
 <div id="rendered-output" class="section level3">
 <h3>Rendered Output</h3>
-<p>The rendered output is <a href="URL%20goes%20here">here</a>.</p>
+<p>The rendered output is <a href="https://ethan-mathews24.github.io/ENVS-193DS_homework-03/code/ENVS-193DS_homework-03.html">here</a>.</p>
 </div>
 </div>
 

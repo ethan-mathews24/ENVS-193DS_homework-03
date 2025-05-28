@@ -1,7 +1,7 @@
 ---
 title: "ENVS-193DS_homework-03"
 author: "Ethan Mathews"
-date: "05/27/2025"
+date: "05/28/2025"
 format:
   html:
     toc: true 
@@ -77,7 +77,7 @@ ggplot(data = data, # calling in data frame
   scale_color_manual(values = c("cardiovascular" = "yellow",
                                 "strength" = "red")) +  # changing the outline color of the jitter points
   
-  labs(title = "How Water Intake Compares to the Type of Workout",  # setting title
+  labs(title = "How Water Intake Compares to the Type of Workout",  # adding title
        subtitle = "By Ethan Mathews", # adding a subtitle
        x = "Workout Type",  # cleaning the x-axis label
        y = "Water Consumed (liters)")   # cleaning the y-axis label
@@ -87,7 +87,7 @@ ggplot(data = data, # calling in data frame
 
 
 #### c. Caption 
-**Figure 1. Cardiovascular workouts are associated with higher water intake.** Data from *Personal study conducted for Data Science in Environmental Studies* (Mathews, E. 2025). Water consumption (liters) was recorded for two types of workouts, cardiovascular (n = 14) and strength training (n = 24). Cardiovascular workouts had a higher median and a more narrow spread of water intake compared to strength training. Transparent open circles represent individual observations (yellow outline = cardiovascular and red outline = strength) and the box plots represent the distribution of values for each group. For the box plots, the colors represent the workout type (purple = cardiovascular and blue = strength training).  
+**Figure 1. Cardiovascular workouts are associated with higher water intake.** Data from *Personal study conducted for Data Science in Environmental Studies* (Mathews, 2025). Water consumption (liters) was recorded for two types of workouts, cardiovascular (n = 14) and strength training (n = 24). Cardiovascular workouts had a higher median and a more narrow spread of water intake compared to strength training. Transparent open circles represent individual observations (yellow outline = cardiovascular and red outline = strength) and the box plots represent the distribution of values for each group. For the box plots, the colors represent the workout type (purple = cardiovascular and blue = strength training).  
 
 
 #### d. Table Presentation
@@ -101,7 +101,7 @@ data_clean <- data |> # starting data frame
 
 ```
 
-```{r Visual Table}
+```{r Calculate Summary Stats for Table}
 
 data_summary <- data_clean |> # starting data frame 
   group_by(workout_type) |> # grouping by the workout type 
@@ -116,6 +116,9 @@ data_summary <- data_clean |> # starting data frame
     across(c(median, lower, upper, minimum, maximum), 
            ~ round(.x, 1)))  # rounding the previous calculations to 1 decimal point
 
+```
+
+```{r Summary Statistics Table}
 
 data_summary |> # starting data frame that has summary statistics
   gt() |> # package for summary table 
@@ -134,16 +137,18 @@ data_summary |> # starting data frame that has summary statistics
   cols_align(
     align = "left",
     columns = workout_type) |> # changing the alignment 
+  
   cols_align(
     align = "center",
     columns = c(n, median, lower, upper, minimum, maximum)) |> # changing to center alignment 
+  
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_column_labels(everything())) |> # making the column names bold 
+  
   tab_options(
   table.font.size = "small", # changing font size so it can fit better 
   heading.align = "left") # align the title to the left
-  
 
 ```
 
@@ -151,7 +156,7 @@ data_summary |> # starting data frame that has summary statistics
 ### Problem 2. Affective visualization
 
 #### a. What an Affective Visual Looks Like 
-When I first thought about affective data visualization, I was drawn to the idea of humanizing data—transforming numbers on a spreadsheet into something more tangible and relatable. For my project, I plan to represent average water intake by illustrating body parts like back, arms, chest, legs, abs, and shoulders along the x-axis. Instead of traditional bars or box plots, each muscle group will be visually represented and "filled" with water to reflect the average amount consumed during workouts targeting that area. To complement this, a small flame icon above each body part will indicate average workout intensity, with four levels/rings that represents the average level of intensity for that body part (more rings filled = higher average intensity). This approach personalizes the data, highlighting the physical connection between hydration and strain while making the visualization emotionally engaging and easy to interpret.
+When I first thought about affective data visualization, I was drawn to the idea of humanizing numbers on a spreadsheet into something more tangible and relatable. For my project, I plan to represent average water intake by illustrating body parts like back, arms, chest, legs, abdomen, and shoulders along the x-axis. Instead of traditional bars or box plots, each muscle group will be visually represented and "filled" with water to reflect the average amount consumed during workouts targeting that area. To complement this, a small flame icon above each body part will indicate average workout intensity, with four levels/rings that represent the average level of intensity for that body part (more rings filled = higher average intensity). This approach personalizes the data, highlighting the physical connection between hydration and strain while making the visualization emotionally engaging and easy to interpret.
 
 
 #### b. Sketch of Idea 
@@ -164,8 +169,10 @@ The sketch is a rough estimate and are not the correct values for the average wa
 
 data_summary <- data |> # starting data frame creating new summary data frame 
   clean_names() |>  # cleaning the names to standardize format 
+  
   select(water_consumption, intensity, body_part_trained) |> # selecting necessary columns 
-  mutate( 
+ 
+   mutate( 
     intensity_score = case_when( # creating a new numeric column based on the intensity level
       intensity == "low" ~ 1,
       intensity == "medium" ~ 2,
@@ -174,6 +181,7 @@ data_summary <- data |> # starting data frame creating new summary data frame
       TRUE ~ NA_real_)) |>  # if it doesn't match any label it will assign it NA
   
   group_by(body_part_trained) |> # grouping the body parts together to calculate averages
+  
   summarize( 
     avg_water = mean(water_consumption, na.rm = TRUE), # calculating the mean of the water consumed by the different body parts 
     avg_intensity = mean(intensity_score, na.rm = TRUE), # calculating the average intensity by the different body parts 
@@ -189,33 +197,32 @@ The content of my piece:
 This piece visualizes my personal data collected over the past weeks, showing the average amount of water I consumed relative to the body part I trained, alongside the intensity of each workout. By humanizing the data through illustrated muscle groups and symbolic flame icons, the visualization makes the information more engaging and accessible than reviewing raw notes or spreadsheets.
 
 The influences:
-The inspiration came from the lecture examples, particularly the violin plots, which sparked the idea of representing each muscle group as a visual shape. From there, I developed the concept of filling each body part with a water level to reflect hydration while layering in flame icons to communicate workout intensity in an emotionally resonant way.
+The inspiration came from the lecture examples, particularly the violin plots, which sparked the idea of representing each muscle group as a visual shape. From there, I developed the concept of filling each body part with a water level to reflect hydration while adding in flame icons to communicate workout intensity in an emotionally resonant way.
 
 The form of your work:
-The piece is a digital drawing that combines artistic illustration with data-informed storytelling, allowing for customized body part silhouettes enhanced with color and symbolic elements to convey both quantitative (water intake) and qualitative (intensity) data. This format offers a clear, expressive, and adaptable way to represent personal metrics that can be reused as a fun way to track future trends.
+The piece is a digital drawing that combines artistic illustration with data-informed storytelling, allowing for customized body part silhouettes enhanced with color and symbolic elements to convey both quantitative (water intake) and qualitative (intensity) data. This format provides a clear and expressive way to represent personal metrics, which can be reused as a fun way to track future trends.
 
 The process:
-I was initially confronted with a creative block and I needed to take a step back to reexamine my data not just as numbers but as a reflection of physical effort, leading me to abandon traditional charting and instead visualize the body as a site of intensity. This reframing allowed me to design an illustration where hydration and exertion are mapped directly onto the body, transforming abstract data into something spatial and personal. 
+I was initially confronted with a creative block, and I needed to take a step back to reexamine my data, not just as numbers, but as a reflection of physical effort, which led me to abandon traditional charting and instead visualize the body as a site of intensity. This reframing allowed me to design an illustration where hydration and exertion are mapped directly onto the body, transforming abstract data into something personal. 
 
 
 ### Problem 3. Statistical Critique
 
 #### a. Revisit and Summarize
-To address their main research question, whether newer groundwater wells are being drilled deeper than older wells in response to declining water tables, the authors use Spearman’s rank correlation. This non-parametric test evaluates the relationship between well construction year (predictor) and well depth (response) across ~39 million wells in 40 countries. A significant positive Spearman ρ indicates that newer wells tend to be deeper, suggesting adaptation to groundwater decline, while a non-significant or negative correlation implies limited or no adaptive response. This approach allows the authors to assess whether well construction practices are keeping pace with groundwater depletion over space and time
+To address their main research question —whether newer groundwater wells are being drilled deeper than older wells in response to declining water tables —the authors use Spearman’s rank correlation. This non-parametric test evaluates the relationship between well construction year (predictor) and well depth (response) across ~39 million wells in 40 countries. A significant positive Spearman ρ indicates that newer wells tend to be deeper, suggesting adaptation to groundwater decline, while a non-significant or negative correlation implies limited or no adaptive response. This approach allows the authors to assess whether well construction practices are keeping pace with groundwater depletion over space and time.
 
 ![Global groundwater wells at risk of running dry (Scott Jasechko & Debra Perrone)](StatisticalCritiqueFigure.jpg)
 
 
 #### b. Visual Clarity
-The authors effectively visualize their statistical results in Figure 2, using a clear layout where the x-axis lists countries and the primary y-axis shows the fraction of spatial areas with well-deepening trends (Spearman ρ > 0). A secondary y-axis on the right interprets whether well-deepening or shallowing trends are more common. The figure also includes a time period color key that distinguishes five intervals, enabling comparison of trends over time, though it summarizes model output rather than displaying raw data or uncertainty measures like standard error.
+The authors effectively visualize their statistical results in Figure 2, using a clear layout where the x-axis lists countries and the primary y-axis shows the fraction of spatial areas with well-deepening trends (Spearman ρ > 0). A secondary y-axis on the right interprets whether well-deepening or shallowing trends are more common. The figure also includes a time period color key that distinguishes five intervals, enabling comparison of trends over time; however, it summarizes model output rather than displaying raw data or uncertainty measures, such as standard error.
 
 
 #### c. Aesthetic Clarity 
-The authors handle visual clutter effectively by compiling multiple dimensions, country, time period, and statistical trends, into a single, well-organized figure. While the figure takes time to interpret, this integrated approach minimizes the need for multiple separate visuals and keeps the overall paper cleaner. The data:ink ratio is high, as nearly all visual elements communicate meaningful information without unnecessary decoration.
+The authors effectively handle visual clutter by compiling multiple dimensions—country, time period, and statistical trends —into a single, well-organized figure. While the figure takes time to interpret, this integrated approach minimizes the need for multiple separate visuals, keeping the overall paper cleaner. The data:ink ratio is high, as nearly all visual elements communicate meaningful information without unnecessary decoration.
 
 
 #### d. Recommendations
-One recommendation is to expand the width of the columns representing each country on the x-axis, which would reduce the overlap of points corresponding to different time periods and make the figure easier to interpret. By allowing the points to move horizontally the visual clutter would be minimized. Additionally, the spatial distribution of countries, currently shown in a compact and crowded panel, could be moved into a separate map or supplementary figure. This would allow for a more detailed and meaningful visualization of the spatial distribution of the groundwater well trends, which is a key component of the study’s analysis. Also, some data points are positioned at or beyond the visual bounds of the figure, so adjusting the axis limits to ensure all points fall clearly within the plotting area would improve the figure’s professionalism and readability.
-
+One recommendation is to expand the width of the columns representing each country on the x-axis, which would reduce the overlap of points corresponding to different time periods and make the figure easier to interpret. By allowing the points to move horizontally, the visual clutter would be minimized. Additionally, the spatial distribution of countries, currently shown in a compact and crowded panel, could be moved into a separate map or supplementary figure. This would enable a more detailed and meaningful visualization of the spatial distribution of groundwater well trends, a key component of the study’s analysis. Also, some data points are positioned at or beyond the boundary of the figure, so adjusting the axis limits to ensure all points fall clearly within the plotting area would improve the figure’s professionalism. 
 
 
